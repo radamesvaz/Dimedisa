@@ -1,0 +1,241 @@
+.pagination{ 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.page-item{
+    float: left;
+    background-color: lightgray;
+}
+
+.page-item:hover{
+    background-color: darkgrey;
+}
+
+.page-link{
+    display: block;
+    color: white;
+    background-color: lightgray;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.bcytii .containerr .input-group .form-control:last-child{
+    border-radius: 50px;
+}
+
+.headroom .navbar .navbar-header .nav {
+
+    display: inline-block;
+}
+
+ .campo-buscar{
+        padding: 3px;
+        border: 1px solid #4c7cf3;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: black;    
+}
+
+.parent-campo-buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+/* Buscador como Cytii */
+
+.bcytii .banner:before{
+    z-index: 0;
+}
+.bcytii .carousel img{
+    opacity: 0.9;
+}
+
+.bcytii .carousel img:hover{
+    opacity: 1;
+}
+
+
+.bcytii .buscador-nombre, .buscador-categoria, .boton-buscar{
+    border-radius: 50px;
+    font-size: small;
+    border: none;
+}
+
+.bcytii .buscador-nombre, .buscador-categoria{
+    width: 400px;
+    border-right: 1px solid #a5a4a4;
+    height: 25px;
+    background-color: white;
+}
+
+.bcytii .btn{
+
+    background-color: green;
+    border-color: white;
+}
+
+.btn:hover{
+    background-color: white;
+    color: green;
+    border-color: green;
+}
+
+
+.boton-buscar {
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    font-weight: 500;
+    min-width: 176px;
+}
+
+.boton-buscar:hover{
+    background-color: white;
+    color: green;
+}
+
+.center{
+    text-align: center;
+}
+
+.center-items{
+    display: inline-block;
+}
+
+
+
+/* Acordeon por categorias */
+
+.contenedor-categorias-controles{
+    text-align: center;
+}
+
+.contenedor-categorias-controles h3{
+    color: white;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px black;
+    font-size: 30px;
+    justify-content: center;
+    position: relative;
+}
+
+.contenedor{
+    width: 90%;
+    margin: auto;
+}
+
+.acordeon-categorias{
+    margin-bottom: 70px;
+}
+
+.acordeon-categorias .contenedor-principal{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.acordeon-categorias .contenedor-principal .flecha-izquierda,
+.acordeon-categorias .contenedor-principal .flecha-derecha{
+    position: absolute;
+    border: none;
+    background: rgba(0,0,0,0.3);
+    font-size: 40px;
+    height: 50%;
+    top: calc(50% - 25%);
+    line-height: 40px;
+    width: 50px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 500;
+    transition: .2s ease all;
+}
+
+
+.acordeon-categorias .contenedor-principal .flecha-izquierda{
+    left: 0;
+}
+
+.acordeon-categorias .contenedor-principal .flecha-derecha{
+    right: 0;
+}
+
+.acordeon-categorias .contenedor-principal .flecha-izquierda:hover,
+.acordeon-categorias .contenedor-principal .flecha-derecha:hover{
+    background: rgba(0,0,0, .9);
+}
+
+/* Carrusel*/
+
+.acordeon-categorias .contenedor-carousel{
+    width: 100%;
+    padding: 20px 0;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.acordeon-categorias .contenedor-carousel .carousel{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.acordeon-categorias .contenedor-carousel .carousel .categoria{
+    min-width: 25%;
+    transition: .3s ease all;
+    box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+}
+
+.acordeon-categorias .contenedor-carousel .carousel .categoria.hover{
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.carousel img{
+	width: 100%;
+	vertical-align: top;
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+
+    .buscador-nombre, .buscador-categoria, .boton-buscar{
+
+        width: 400px;
+        margin-top: 10px;
+        justify-content: center;
+        display: block;
+
+    }
+    .acordeon-categorias .contenedor-carousel{
+        overflow: visible;
+    }
+
+    .acordeon-categorias .contenedor-carousel .carousel{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .acordeon-categorias .indicadores,
+   /* .contenedor-categorias-controles h3,*/
+    .acordeon-categorias .flecha-izquierda,
+    .acordeon-categorias .flecha-derecha{
+        display: none;
+    }
+
+    .acordeon-categorias{
+        margin-top: 130px;
+    }
+  
+  }
+
+ 
+ 

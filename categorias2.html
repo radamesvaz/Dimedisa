@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    <link rel="stylesheet" href="libs/styles/compiledStylesjademillsestates.com.css">
+
+    <link rel="stylesheet" href="css/buscador/bootstrap.min.css">
+    <link rel="stylesheet" href="css/buscador/bsnav.min.css">
+    <link rel="stylesheet" href="css/buscador/gijgo.min.css">
+    <link rel="stylesheet" href="css/buscador/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/buscador/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/buscador/responsive.css">
+    <link rel="stylesheet" href="css/buscador/select2.min.css">
+        <link rel="stylesheet" href="css/buscador/style.css">
+
+    -->
+    <link rel="stylesheet" href="libs/styles/compiledStylesjademillsestates.com.css">
+    <link rel="stylesheet" href="css/buscador/fontello.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS only -->
+    <!--
+           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+ 
+    -->
+
+</head>
+
+    <body>
+      <header id="header" class="headroom--top headroom--not-bottom headroom undefined">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="logo-container">
+                        <a href="index.html" class="logo-holder">
+                            <div class="logo-wrapper">
+                                <img id="profile-image" src="images/logo.png" class="logo-light"/>
+                                <img id="profile-image" src="images/logo.png" class="logo-dark"/>
+                            </div>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li id="google_translate_element" class="translate-element"></li>
+    <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                  
+                        <li class="nav-item">
+                            <a data-target="#modal-contact" data-toggle="modal" role="button" class="nav-link">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a role="button" class=" agent-phone nav-link" href="https://wa.me/5072827318">
+                                (507) 282 7318
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                        <li class="nav-item">
+                            <a class="nav-link toggle-id-1">Menu</a>
+                        </li>
+                        <ul class="nav">
+                            <li>
+                                <button type="button" class="navbar-toggle toggle-id-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </li>
+                        </ul>
+                        </li></ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <script>
+        var headerSettings;
+        try {
+            headerSettings = JSON.parse($('#header-json-settings')[0].textContent);
+        } catch (err) {
+        }
+        (function ($) {
+                $.each(['show', 'hide'], function (i, ev) {
+                    var el = $.fn[ev];
+                    $.fn[ev] = function () {
+                        this.trigger(ev);
+                        return el.apply(this, arguments);
+                    }
+                    ;
+                });
+            }
+        )(jQuery);
+        $(document).ready(function () {
+            var modalUniqueClass = ".modal";
+            $('.modal').on('show', function (e) {
+                var $element = $(this);
+                var $uniques = $(modalUniqueClass + ':visible').not($(this));
+                if ($uniques.length) {
+                    $uniques.modal('hide');
+                    $uniques.one('hidden.bs.modal', function (e) {
+                        $element.modal('show');
+                    });
+                    return false;
+                }
+            });
+        });
+        if (headerSettings) {
+            const items = headerSettings.items;
+    
+            function renderSingleItem(item) {
+                var name = item.name;
+                var action = item.action;
+                switch (action.name) {
+                    case 'link':
+                        return '<li class="nav-item"><a href="' + action.actionValue + '" role="button" class="nav-link">' + name + '</a></li>';
+                        break;
+                    case 'popup':
+                        return '<li class="nav-item"><a data-target="' + action.actionValue + '" data-toggle="modal" role="button" class="nav-link">' + name + '</a></li>';
+                        break;
+                    case 'phone':
+                        return '<li class="nav-item"><a role="button" class=" agent-phone nav-link" href="https://wa.me/50762161223">' + name + '</a></li>';
+                        break;
+                    case 'sidebar-open':
+                        return '<li class="nav-item"><a class="nav-link toggle-id-1">' + name + '</a></li>';
+                        break;
+                }
+            }
+    
+            $('.navbar-nav .nav-item').empty();
+            var newMenu = items.reduce(function (acc, currentVale) {
+                return acc + renderSingleItem(currentVale);
+            }, '');
+            $('.navbar-nav').prepend(newMenu);
+        }
+    </script>
+      <div class="view-content">
+        <div id="property-slot" class="future-frontend-container"></div>
+        <!--.container-->
+       <div class="view-content">
+        <div id="blog-slot" class="future-frontend-container"></div>
+        <div class="blog-site">
+            <div style="background:url(images/banner4.jpg) center no-repeat;background-size:cover"
+                 class="site-top-head">
+                <div class="site-top-head-text-container" style='width:900px'>
+                  <div class = 'center buscador' style='margin-bottom: 40px;'>
+                    <div class='center-items'>
+                      <p class="white">Buscar Productos</p>
+                            <input type="text" placeholder="Nombre" class='buscador-nombre'>
+          
+                            <select name="categoria" class='buscador-categoria' id="buscador-categoria">
+                                <option value="">Categorias</option>
+                                <option >Quimicos Dimemax</option>
+                                <option >Quimicos Industriales</option>
+                                <option >Seguridad Personal</option>
+                                <option >Higiene y Mantenimiento</option>
+                                <option >Uniformes</option>
+                                <option >Procesos</option>
+                                <option >Termometros</option>
+                                <option >Manejo de Materiales</option>
+                                <option >Cuchilleria</option>
+                            </select>
+                            <button class='boton-buscar'>Buscar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+       
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="apiApp">
+                            <search-form></search-form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <div class="contenedor" >
+
+
+      <div class="acordeon-categorias">
+        <div class="contenedor-categorias-controles">
+          <h3>Navegar Categorias</h3>
+          <div class="indicadores"></div>
+        </div>
+
+        <div class="contenedor-principal">
+          <button role="button" id="flecha-izquierda" class="flecha-izquierda"><i class="fas fa-angle-left"></i></button>
+          <div class="contenedor-carousel">
+            <div class="carousel">
+              <div class="categoria">
+                <a href="#"><img src="images/p1.png" alt="Quimicos Dimemax"></a>
+              </div>
+              <div class="categoria">
+                <a href="#"><img src="images/p2.png" alt="Quimicos Industriales"></a>
+              </div>
+              <div class="categoria">
+                <a href="#"><img src="images/p3.png" alt="Seguridad Personal"></a>
+              </div>
+                <div class="categoria">
+                <a href="#"><img src="images/p4.png" alt="Higiene y Mantenimiento"></a>
+              </div>
+                <div class="categoria">
+                <a href="#"><img src="images/p5.png" alt="Uniformes"></a>
+              </div>
+                <div class="categoria">
+                <a href="#"><img src="images/p6.png" alt="Procesos"></a>
+              </div>
+                <div class="categoria">
+                <a href="#"><img src="images/p7.png" alt="Termometros"></a>
+              </div>
+                <div class="categoria">
+                <a href="#"><img src="images/p8.png" alt="Manejo de Materiales"></a>
+              </div>
+                <div class="categoria">
+                <a href="#"><img src="images/p9.png" alt="Cuchilleria"></a>
+              </div>
+            </div>
+
+          </div>
+
+
+          <button role="button" id="flecha-derecha" class="flecha-derecha"><i class="fas fa-angle-right"></i></button>
+
+        </div>
+      </div>
+
+
+      <div style class='properties'>
+          <div class='propertyListings'>
+              <div class='properties'>
+
+                  <div class='properties-true properties-container' id='contenedor-resultados'>
+                      
+                  </div>
+
+              </div>
+
+          </div>
+          <div style='display: flex;  justify-content: center;  align-items: center;'>
+              <nav>
+                  <ul class="pagination">
+                      
+                  </ul>
+              </nav>
+  
+              </div>
+      </div>
+
+      </div>
+      <!-- Off Canvas-->
+    <div off-canvas="id-1 right overlay" class="offcanvas">
+      <div class="offcanvas-inner">
+          <div id="menu-json-settings" style="display: none"></div>
+          <a class="offcanvas-header">
+              <img alt="" src="images/icon-close.png" class="offcanvas-close">
+          </a>
+          <ul class="offcanvas-menu">
+              <li>
+                  <a href="index.html">Inicio</a>
+              </li>
+              <li class="dropdown">
+
+    <a href="about.html">Quiénes somos</a>
+
+              </li>
+
+              <li>
+                  <a href="categorias.html">Productos</a>
+              </li>
+              <li>
+                  <a href="catalogo.html">Catálogo</a>
+              </li>
+
+
+              <li>
+                  <a data-target="#modal-contact" id="sidebar-contact-button" data-toggle="modal" role="button"
+                    class="close-menu">Contacto</a>
+              </li>
+
+
+          </ul>
+          <ul class="offcanvas-footer">
+              <li>
+                  <a data-target="#modal-contact" data-toggle="modal" role="button"
+                    class="btn btn-inverse btn-circle icon-envelope close-menu"></a>
+                      <a href="tel:+5073231780" data-toggle="modal" role="button"
+                    class="btn btn-inverse btn-circle icon-phone close-menu"></a>
+
+                      <a href="https://wa.me/50765503887" data-toggle="modal" role="button"
+                    class="btn btn-inverse btn-circle fa fa-whatsapp whatsapp-icon close-menu"></a>
+
+              </li>
+          </ul>
+      </div>
+    </div>
+    <div class="offcanvas-backdrop"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script>
+      var orders = '';
+      var menuOrders = orders ? orders.split(',') : [];
+      var sidebarSettings;
+      try {
+          sidebarSettings = JSON.parse($('#menu-json-settings')[0].textContent);
+      } catch (err) {
+      }
+      if (!sidebarSettings) {
+          $(window).ready(function () {
+              setTimeout(function () {
+                  var maped = _.map(menuOrders, function (menuOrder) {
+                      var splittedMenuOrder = menuOrder.split(':');
+                      return {
+                          name: splittedMenuOrder[0],
+                          val1: parseInt(splittedMenuOrder[1])
+                      };
+                  });
+                  var sorted = _.sortBy(maped, 'val1').reverse();
+                  _.forEach(sorted, function (menuOrder) {
+                      $('.offcanvas-menu').prepend($('.offcanvas-menu li a:contains("' +
+                          menuOrder.name + '")').parent());
+                  });
+              }, 100);
+          })
+      }
+      if (sidebarSettings) {
+          const items = sidebarSettings.items;
+
+          function renderSingleItem(item) {
+              var name = item.name;
+              var action = item.action;
+              switch (action.name) {
+                  case 'link':
+                      return '<li><a href="' + action.actionValue + '">' + name + '</a></li>';
+                      break;
+                  case 'popup':
+                      return '<li><a data-target="' + action.actionValue +
+                          '" data-toggle="modal" role="button" class="close-menu">' + name + '</a></li>';
+                      break;
+              }
+          }
+
+          function renderSubmenuType(menu) {
+              const subItems = menu.subItems.reduce(function (acc, currentVal) {
+                  return acc + renderSingleItem(currentVal);
+              }, '');
+              const template =
+                  '<li class="dropdown"><a id="dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="dropdown-toggle">' +
+                  menu.name + '</a><ul aria-labelledby="dropdown-menu" class="dropdown-menu">' + subItems +
+                  '</ul></li>'
+              return template;
+          }
+
+          $('.offcanvas-menu').empty();
+          var newMenu = items.reduce(function (acc, currentVale) {
+              var result;
+              if (currentVale.subItems) {
+                  result = renderSubmenuType(currentVale);
+              } else {
+                  result = renderSingleItem(currentVale);
+              }
+              return acc + result;
+          }, '');
+          $('.offcanvas-menu').append(newMenu);
+      }
+    </script>
+<!-- Modal-->
+    <div id="modal-search" role="dialog" ng-controller="searchModalController as modalCtrl"
+        class="modal modal-fullscreen modal-search fade dark-color-transparent light-color-text">
+        <div class="modal-dialog">
+            <div id="quick-links-json" style="display: none"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <a data-dismiss="modal" aria-label="Close">
+                        <img alt="" src="images/icon-close-white.png" class="modal-close">
+                    </a>
+                    <h1>búsqueda rapida</h1>
+                </div>
+                <div class="modal-body" id="apiHome">
+                    <search-form-home></search-form-home>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var quickLinkJson;
+            try {
+                quickLinkJson = JSON.parse($('#quick-links-json')[0].textContent);
+            } catch (err) {
+            }
+            if (quickLinkJson) {
+                $('#quick-links-wrapper').empty();
+                quickLinkJson.links.forEach(function (item) {
+                    $('#quick-links-wrapper').append('<li><a href="' + item.link + '">' + item.name +
+                        '</a></li>');
+                })
+            }
+        </script>
+    </div>
+    <!-- Modal-->
+    <style>
+      .help-inline {
+          color: red
+      }
+
+      .form-group.recaptcha {
+          display: flex;
+          flex-direction: column;
+          align-items: center
+      }
+    </style>
+
+    <div id="modal-contact" role="dialog" class="modal modal-fullscreen modal-contact fade dark">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <a data-dismiss="modal" aria-label="Close">
+                      <img alt="" src="images/icon-close-white.png" class="modal-close">
+                  </a>
+              </div>
+              <div class="modal-body">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-sm-12">
+                              <h5 style="color: #fff;">DIMEDISA.</h5>
+                              <h2 style="color: #fff;">Contacto</h2>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm-6 form-container">
+                              <h5>Consulta en línea</h5>
+                      <form action="mail.php" method="post" ng-controller="ContactModalController" id="contact-modal-form">
+                                  <div ng-show="formCompleted">
+                                      <h5>Gracias por enviar la consulta</h5>
+                                  </div>
+                                  <div ng-show="false" class="form-group"></div>
+                                  <div ng-hide="formCompleted" class="form-group">
+                                      <label for="Nombre" class="sr-only">Nombre y Apellido</label>
+    <input id="Nombre" name="Nombre"type="text" placeholder="Nombre y Apellido" class="form-control" required="Llenar campo">
+                                      <span ng-show="submitted &amp;&amp; formErrors.name" class="help-inline">{{formErrors.name.message}}</span>
+                                  </div>
+                                  <div ng-hide="formCompleted" class="form-group">
+                                      <label for="email" class="sr-only">Email</label>
+    <input id="Correo" name="Correo" ng-model="formInput.email" type="email" placeholder="Email"
+                                            class="form-control" required>
+                                      <span ng-show="submitted &amp;&amp; formErrors.email" class="help-inline">{{formErrors.email.message}}</span>
+                                  </div>
+                                  <div ng-hide="formCompleted" class="form-group">
+                                      <label for="phone" class="sr-only">Teléfono</label>
+    <input id="Telefono" name="Telefono" ng-model="formInput.phone" type="text" placeholder="Teléfono"
+                                            class="form-control" required>
+                                  </div>
+                                
+                                  <div ng-hide="formCompleted" class="form-group">
+    <textarea id="Asunto" name="Asunto" ng-model="formInput.message" rows="3" placeholder="Asunto" class="form-control"></textarea>
+                                      <span ng-show="submitted &amp;&amp; formErrors.message" class="help-inline">{{formErrors.message.message}}</span>
+                                  </div>
+
+                                  <div ng-hide="formCompleted" class="form-group">
+
+    <div ng-hide="formCompleted" class="g-recaptcha" data-sitekey="6Lc13OQUAAAAAAdetpMVPJmwIl2uF2kedoaASy1f"></div>
+
+                                      <span ng-show="submitted &amp;&amp; formErrors.message" class="help-inline">{{formErrors.message.message}}</span>
+                                  </div>
+
+
+
+                                  <button ng-hide="formCompleted" type="submit" value=Enviar class="btn btn-outline">
+                                      Enviar
+                                  </button>
+                              </form>
+                          </div>
+                          <div class="col-sm-6 contact-details-container">
+                              <h5 style="color: #fff;">DETALLES DE CONTACTO</h5>
+                              <p style="color: #fff;">
+    PARQUE LEFEVRE, Calle 1era, Edif 1, PB, Local 1.<br><br>
+
+    Horario: de Lunes a Jueves de 7am a 4:30pm<br>
+    Viernes: de 7am a 4pm
+                                  <br><br>
+                                  Teléfono(s): +507 323-1780<br>
+                                +507 6550-3887
+                                  <br><br>
+                                ventas@dimedisa.com
+
+                                <div class="social-links">
+                              <a href="https://www.facebook.com/dimedisapty/" target="_blank"
+                                class="btn btn-circle btn-outline icon-facebook"></a>
+                            
+                              <a href="https://www.instagram.com/dimedisapty/" target="_blank"
+                                class="btn btn-circle btn-outline icon-instagram"></a>
+                            
+    <a href="https://wa.me/50765503887" target="_blank" class="btn btn-circle btn-outline fa fa-whatsapp whatsapp-icon"></a>
+
+
+
+
+
+
+                              </div>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
+
+    </div>
+
+      <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script src='js/BuscadorCytii.js'></script>
+        <script src='js/CarruselCytii.js'></script>
+
+        <script>
+          $('#contactModal').on('show.bs.modal', function () {
+              $('.modal-content').css('height', $(window).height() * 0.8);
+          });
+          var modals = $('.modal');
+          modals.on('show.bs.modal', function () {
+              window.headroomPaused = true;
+              if (window.pageYOffset) {
+                  $('.main-container').addClass('locked').css('top', -window.pageYOffset + 'px');
+              }
+          });
+          modals.on('hidden.bs.modal', function () {
+              var mainContainer = $('.main-container');
+              var top = -parseInt(mainContainer.css('top'));
+              mainContainer.removeClass('locked').css('top', '');
+              window.scrollTo(0, top);
+              window.headroomPaused = false;
+          });
+          $(function () {
+              views.getAngularInstanceService().createInstance();
+              angular.bootstrap(document, ['LPApp']);
+          });
+      </script>
+      <style type="text/css">
+          @media (min-width: 992px) {
+              .footer-container footer .footer-base .footer-logos-menu-container .logos-container img {
+                  max-height: 10em;
+                  width: 155px
+              }
+          }
+      </style>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+{
+  "globalVariables": {
+    "brand-color": "#1b1b1b",
+    "dark-color": "#1b1b1b",
+    "dark-color-light-transparent": "#2b3033c7",
+    "dark-color-more-light-transparent": "#2b30339e",
+    "third-color": "#1b1b1b"
+  },
+  "extraCSS": [
+    {
+      "value": {
+        "$concat": [
+          {
+            "$concat": [
+              "#listingsPage .group-cluster, #listingsPage .group-cluster-hover , a.brand-color, .cta.brand-color, .grid.brand-color, .btn.btn-circle:hover, .slider-wrapper .property-specs { background-color: ",
+              {
+                "$value": "brand-color"
+              }
+            ]
+          },
+          "!important ; }"
+        ]
+      }
+    },
+    {
+      "value": {
+        "$concat": [
+          {
+            "$concat": [
+              ".videos.dark-color, .property-status-wrapper.dark-color, .opinion.dark-color, footer.dark-color, .property-status-wrapper.dark-color, .property-detail-header.dark-color, .guest-container.dark-color, .view-all-properties a:hover, .details-box-component, .neighborhood-description .description-wrapper a:hover, .property-page .virtual-tour, .main-container .control-bar, #listing-area #details-pane, #listingsPage .group-cluster span, #listingsPage .group-cluster-hover span, #listingsPage .pricemarker-hover { background-color: ",
+              {
+                "$value": "dark-color"
+              }
+            ]
+          },
+          "!important ; }"
+        ]
+      }
+    },
+    {
+      "value": {
+        "$concat": [
+          {
+            "$concat": [
+              ".headroom.dark .navbar.navbar-default  { background: ",
+              {
+                "$value": "dark-color"
+              }
+            ]
+          },
+          "; }"
+        ]
+      }
+    },
+    {
+      "value": {
+        "$concat": [
+          {
+            "$concat": [
+              "#listingsPage .pricemarker-hover::after  { border-color: ",
+              {
+                "$value": "dark-color"
+              }
+            ]
+          },
+          "!important ; }"
+        ]
+      }
+    },
+    {
+      "value": {
+        "$concat": [
+          {
+            "$concat": [
+              ".propertyListings .properties-container .properties-details { background-color: ",
+              {
+                "$value": "dark-color-light-transparent"
+              }
+            ]
+          },
+          " !important; }"
+        ]
+      }
+    },
+    {
+      "value": {
+        "$concat": [
+          {
+            "$concat": [
+              ".lp-tile-component .bottom-info, .properties .properties-item:hover .properties-item-inner .properties-details, .properties .properties-item.tile-hover .properties-item-inner .properties-details  { background-color: ",
+              {
+                "$value": "dark-color-more-light-transparent"
+              }
+            ]
+          },
+          " !important; }"
+        ]
+      }
+    },
+    {
+      "value": {
+        "$concat": [
+          {
+            "$concat": [
+              "div.rsPlayBtnIcon:hover,  #homepage-video-block #header-button:hover, .slider-wrapper .property-link-button:hover { background-color: ",
+              {
+                "$value": "third-color"
+              }
+            ]
+          },
+          " !important; }"
+        ]
+      }
+    },
+    {
+      "value": ".community-grid-item .grid-image { opacity: 0.8 !important ; }"
+    },
+    {
+      "value": ".community-grid-item:hover .grid-image { opacity: 0.3 !important ; }"
+    }
+  ],
+  "theming": []
+}
