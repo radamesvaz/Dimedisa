@@ -317,7 +317,7 @@ const buscarCarrusel = (e) => {
 }
 
 const closingCode = () => {
-    sessionStorage.clear();
+    sessionStorage.removeItem("categoria");
     return null;
 }
 
