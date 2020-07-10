@@ -3,6 +3,7 @@ const descripcionProducto = document.querySelector('#descripcion-producto');
 const modoUsoProducto = document.querySelector('#modouso-producto');
 const precioProducto = document.querySelector('#precio-producto');
 const imagenProducto = document.querySelector('#imagen-producto');
+const btnVolver = document.querySelector('#btn-volver-tablas');
 
 
 // Esta funcion acomoda los % y coloca los saltos de linea
@@ -45,7 +46,6 @@ const buscarProductoId = () => {
         method: 'get'
     };
     fetch(`https://dimedisa-api.herokuapp.com/buscar-producto/${sessionStorage.productoId}`, options)
-    //fetch(`http://localhost:3000/buscar-producto/${sessionStorage.productoId}`, options)
     .then(data => {
         return data.json()
         }).then( res => {
@@ -54,4 +54,13 @@ const buscarProductoId = () => {
             
 }
 
-window.addEventListener('load', buscarProductoId)
+
+const volverResultados = () => {
+    sessionStorage.removeItem("productoId");
+    window.history.back();
+}
+
+
+window.addEventListener('load', buscarProductoId);
+
+btnVolver.addEventListener('click', volverResultados);

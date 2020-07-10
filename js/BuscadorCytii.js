@@ -101,7 +101,7 @@ const ordenarAlfabeticamente = (e) => {
      });
 }
 
- buscarTodosProductos = (e) => {
+ const buscarTodosProductos = (e) => {
     const options = {
         method: 'get'
     };
@@ -118,12 +118,11 @@ const ordenarAlfabeticamente = (e) => {
             }else{
                 state.productos = res;
                 ordenarAlfabeticamente(res);
-                if(sessionStorage.length >= 1){
+                if(sessionStorage.length < 1){
+                    haciendoPaginacion(res);
+                }else{
                     buscarPorCategoria(e);
                     irInicioPagina();
-                }else{
-                    
-                    haciendoPaginacion(res);
                     }
            
 
@@ -133,7 +132,6 @@ const ordenarAlfabeticamente = (e) => {
 
 const abrirDetalles = (e) => {
     const target = e.target.id;
-    console.log(target);
     sessionStorage.setItem('productoId', target)
     window.open('detalles-producto.html', '_self');
 }
