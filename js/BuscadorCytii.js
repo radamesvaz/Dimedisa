@@ -119,7 +119,8 @@ const ordenarAlfabeticamente = (e) => {
                 state.productos = res;
                 ordenarAlfabeticamente(res);
                 if(sessionStorage.length >= 1){
-                    buscarPorCategoria(e)
+                    buscarPorCategoria(e);
+                    irInicioPagina();
                 }else{
                     
                     haciendoPaginacion(res);
@@ -242,9 +243,9 @@ const cambiarPagina = (e) => {
 }
 
 const irInicioPagina = (e) => {
-    const target = e.target;
+    //const target = e.target;
     $('html, body').animate({
-        scrollTop: $("#contenedor-resultados").offset().top
+        scrollTop: $("#productos-actuales").offset().top
     }, 600);
 }
 
