@@ -101,7 +101,7 @@ const ordenarAlfabeticamente = (e) => {
      });
 }
 
- buscarTodosProductos = () => {
+ buscarTodosProductos = (e) => {
     const options = {
         method: 'get'
     };
@@ -118,10 +118,17 @@ const ordenarAlfabeticamente = (e) => {
             }else{
                 state.productos = res;
                 ordenarAlfabeticamente(res);
-                haciendoPaginacion(res);
+                if(sessionStorage.length >= 1){
+                    buscarPorCategoria(e)
+                }else{
+                    
+                    haciendoPaginacion(res);
+                    }
+           
+
             }
     })
-}
+ }
 
 const abrirDetalles = (e) => {
     const target = e.target.id;
@@ -308,9 +315,13 @@ const buscarCarrusel = (e) => {
 
 }
 
+const closingCode = () => {
+    sessionStorage.clear();
+    return null;
+}
 
   
-window.addEventListener('load', buscarTodosProductos);
+window.addEventListener('load', buscarTodosProductos((sessionStorage.categoria)));
     
 contenedor.addEventListener('click', abrirDetalles);
 
@@ -320,6 +331,7 @@ botonBuscar.addEventListener('click', buscadorNombreYCategoria);
 
 filas.addEventListener('click', buscarCarrusel);
 
+window.onbeforeunload = closingCode;
 
     
 

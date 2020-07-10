@@ -6,7 +6,7 @@ const buscarCategoria = (e) => {
     
     sessionStorage.setItem('categoria', target.alt);
 
-    window.open("productos.html", '_self' );
+    window.open("categorias.html", '_self' );
 
 }
 
